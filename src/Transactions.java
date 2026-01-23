@@ -5,40 +5,40 @@ public class Transactions {
     double amountWithdrawn = 0.0;
     double amountDeposited = 0.0;
 
-    private final Bank myBank;
+    private final Account myAccount;
     
-    public Transactions(Bank myBank) {
-        this.myBank = myBank;
+    public Transactions(Account myAccount) {
+        this.myAccount = myAccount;
     }
 
     public void withdraw() {
-        double withdrawBalance = myBank.getBalance() - myBank.getWithdrawAmount();
+        double withdrawBalance = myAccount.getBalance() - myAccount.getWithdrawAmount();
         if (withdrawBalance < 0) {
              // PRINT ERROR MESSAGE
              // DON'T CHANGE BALANCE
              return;
         }
-        addToAmountWithdrawn(myBank.getWithdrawAmount() + amountWithdrawn);
-        myBank.setBalance(withdrawBalance);
-        myBank.setDepositAmount(RESET_BALANCE);
+        addToAmountWithdrawn(myAccount.getWithdrawAmount() + amountWithdrawn);
+        myAccount.setBalance(withdrawBalance);
+        myAccount.setDepositAmount(RESET_BALANCE);
     }
     public void deposit() {
-        if (myBank.getDepositAmount() <= 0) {
+        if (myAccount.getDepositAmount() <= 0) {
             // PRINT ERROR MESSAGE
             // DON'T CHANGE BALANCE
             return;
         }
-        addToAmountDeposited(myBank.getDepositAmount() + amountDeposited);
-        double depositBalance = myBank.getBalance() + myBank.getDepositAmount();
-        myBank.setBalance(depositBalance);
-        myBank.setDepositAmount(RESET_BALANCE);
+        addToAmountDeposited(myAccount.getDepositAmount() + amountDeposited);
+        double depositBalance = myAccount.getBalance() + myAccount.getDepositAmount();
+        myAccount.setBalance(depositBalance);
+        myAccount.setDepositAmount(RESET_BALANCE);
     }
 
     public double getAmountDeposited() {
         return amountDeposited;
     }
 
-    public void addToAmountDeposited(double deposit) {
+    private void addToAmountDeposited(double deposit) {
         amountDeposited += deposit;
     }
 
@@ -46,7 +46,7 @@ public class Transactions {
         return amountWithdrawn;
     }
 
-    public void addToAmountWithdrawn(double withdraw) {
+    private void addToAmountWithdrawn(double withdraw) {
         amountWithdrawn += withdraw;
     }
 }

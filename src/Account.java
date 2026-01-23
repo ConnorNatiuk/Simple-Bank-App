@@ -1,4 +1,4 @@
-public class Bank {
+public class Account {
     double balance = 0.0;
     double withdrawAmount = 0.0;
     double depositAmount = 0.0;
@@ -32,6 +32,6 @@ public class Bank {
     }
 
     public void resetDepositAmount() {
-        this.withdrawAmount = 0;
+        this.depositAmount = 0;
     }
 }
