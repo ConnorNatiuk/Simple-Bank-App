@@ -2,6 +2,8 @@ public class Transactions {
 
     static final double RESET_BALANCE = 0.0;
 
+    // THIS IS FOR A TEST AGAIN
+
     double amountWithdrawn = 0.0;
     double amountDeposited = 0.0;
 
